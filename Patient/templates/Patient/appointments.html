@@ -1,0 +1,43 @@
+{% extends 'Patient/layout.html' %} {% block body %}
+
+<div class='container-patient container-fluid'>
+
+    <div class="patients">
+        <h1 style="font-weight: bolder;">Appointment Details</h1>
+
+
+        <table class="table table-hover table-bordered ">
+            <thead>
+                <tr>
+
+                    <th scope="col ">Patient</th>
+
+                    <th scope="col ">Doctor Name</th>
+                    <th scope="col ">Passenger Booked Appointment At </th>
+                    <th scope="col ">Appointment Date(started Meds on Date)</th>
+                    <th scope="col ">Appointment Time Slot</th>
+
+                    <th scope="col ">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{patient.first_name}} {{patient.last_name}}</td>
+
+                    <td>{{patient.doctor_name}}</td>
+                    <td>{{patient.from_date}}</td>
+                    <td>{{patient.date}}</td>
+                    <td>{{patient.timeslot}}</td>
+
+                    <td><a href="{% url 'update' patient.id %} "><button class="btn btn-primary ">Update</button></a>
+                        <a href="{% url 'cancel' patient.id %} "><button class="btn btn-danger ">Cancel</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock %}

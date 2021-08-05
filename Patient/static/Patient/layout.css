@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    color: black;
+}
+
+.appointment_area {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: silver;
+    padding: 10px;
+    margin: 20px;
+}
+
+.appointment_area p {
+    margin-right: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-size-adjust: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+}
+
+.top {
+    width: 100%;
+    height: 600px;
+    background-image: url("https://wallpaperaccess.com/full/1327303.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.top h6 {
+    font-size: 40px;
+    font-weight: bolder;
+    margin-left: 40px;
+}
+
+.top p {
+    margin-top: 150px;
+}
+
+.top button {
+    margin-left: 40px;
+}
+
+.middle {
+    margin: 27px;
+}
+
+.middle .row {
+    background-color: darkturquoise;
+}
+
+.footer {
+    background-color: black;
+    height: 80px;
+}

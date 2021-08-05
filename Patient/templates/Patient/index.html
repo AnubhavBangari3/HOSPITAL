@@ -1,0 +1,149 @@
+ {% extends 'Patient/layout.html' %} {% load static %}{% block body %}
+
+<div class="top">
+    <p><b><h6>Professional <br>
+        Family Health Care</h6></b></p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Book an appointment
+        </button>
+</div>
+
+
+<div class="container">
+
+
+    <h1>Doctors</h1>
+    <div class="doct clearfix" style="display:inline-flex; flex-wrap:wrap;">
+
+        {% for doctor in doctors %}
+
+        <div class="card" style="width: 20rem; margin-left:10px; margin-top:10px;">
+            <img src="{% static 'Patient/avatar.png' %}" class="card-img-top" style="
+            margin:0 auto;
+            width:100px;height:100px;">
+            <div class="card-body">
+                <h1>DR {{doctor.name|upper}}</h1>
+                <b>({{doctor.specialization}})</b><br>
+                <b>Diseases like-</b> {% for a in doctor.diseases.all %}
+                <h6 style="color:blue;">{{a}}</h6>
+                {% endfor %}
+                <p>{{doctor.intro}}</p>
+            </div>
+        </div>
+        <br> {% endfor %}
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="staticBackdropLabel ">Book Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body">
+                    <form method="post" action=" ">
+                        {% csrf_token %} {{form.as_p}}
+                        <button class="btn btn-dark">Book appointment</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <div class="appointment_area">
+        <p style="color:white;font-weight: bolder;">Make an appointment</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Book an appointment
+        </button>
+    </div>
+    <div class="middle">
+        <div class="row">
+
+            <div class="col-5" style="width:50%; border:2px solid white;">
+                <div class="card-body" style="text-align:center;">
+                    <h1 class="card-title" style="color:white;font-weight: bolder;">Appointment Times</h1>
+                    <p class="card-text">
+
+                        <table class="table" style="color:white;font-weight: bolder;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Slots</th>
+                                    <th scope="col">Timing</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>09:00 – 09:30</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>10:00 – 10:30</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>11:00 – 11:30</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>12:00 – 12:30</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>13:00 – 13:30</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>14:00 – 14:30</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>15:00 – 15:30</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>16:00 – 16:30</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>17:00 – 17:30</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Book an appointment
+                    </button>
+                </div>
+            </div>
+            <div class="col-4" style="width:50%; border:2px solid white;">
+                <div class="card-body" style="text-align:center;">
+                    <h1 class="card-title" style="color:white;font-weight: bolder;">Days</h1>
+                    <p class="card-text" style="margin-top:150px;">
+                        <h1 style="color:white;font-weight: bolder;">MONDAY TO FRIDAY</h1>
+                        <h1 style="color:white;font-weight: bolder;">SATURDAY TO SUNDAY</h1>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer" style="display:flex; justify-content:center;text-align:center;">
+    <h6 style="color:white;font-weight: bolder; margin-top:20px;">ABOUT US</h6>
+    <h6 style="color:white;font-weight: bolder; padding-left: 20px;margin-top:20px;">BLOG</h6>
+    <h6 style="color:white;font-weight: bolder; padding-left: 20px;margin-top:20px;">CONTACT US</h6>
+
+</div>
+
+{% endblock %}

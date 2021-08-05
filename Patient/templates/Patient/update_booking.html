@@ -1,0 +1,15 @@
+{% extends 'Patient/layout.html' %} {% block body %}
+
+
+<div class="card" style="display:flex;justify-content:center;text-align:center;">
+    <div class="card-body ">
+        <h6>Update Appointment</h6>
+        <form method="post" action="">
+
+            {% csrf_token %} {{form.as_p}}
+            <button class="btn btn-dark ">Update appointment</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
